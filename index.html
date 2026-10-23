@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Sweet Seventeen, Chelsi 🤍</title>
+<meta name="theme-color" content="#0d0815">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --malam:#0d0815; --anggur:#3a0f2e; --emas:#e9cf93; --emas2:#b98a3e; --rose:#e8a598; --gading:#fbf3e4;
+  --foil:linear-gradient(100deg,#b98a3e 0%,#f6e3b0 28%,#e9cf93 45%,#b98a3e 62%,#f6e3b0 85%,#c79a4c 100%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(110% 70% at 50% -10%,#4b1639 0%,var(--anggur) 28%,var(--malam) 72%) fixed;color:var(--gading);
+  font-family:'Jost',system-ui,sans-serif;font-weight:300;line-height:1.85;overflow-x:hidden}
+body.terkunci{overflow:hidden}
+canvas{position:fixed;inset:0;pointer-events:none}
+#debu{z-index:0}#konfeti{z-index:60}
+main,footer{position:relative;z-index:2}
+
+.emas{background:var(--foil);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:kilau 7s linear infinite}
+@keyframes kilau{to{background-position:-220% 0}}
+
+/* ---------- COVER ---------- */
+#cover{position:fixed;inset:0;z-index:50;display:grid;place-items:center;text-align:center;padding:26px;
+  background:radial-gradient(80% 60% at 50% 38%,#5a1c45 0%,var(--malam) 75%);transition:opacity 1.2s,visibility 1.2s}
+#cover.hilang{opacity:0;visibility:hidden}
+.pigura{position:relative;width:min(420px,100%);padding:54px 28px 46px;border:1px solid var(--emas2);outline:1px solid rgba(233,207,147,.35);outline-offset:8px}
+.pigura::before,.pigura::after{content:"❖";position:absolute;color:var(--emas);font-size:1.1rem;background:#1a0b1c;padding:0 8px}
+.pigura::before{top:-13px;left:50%;transform:translateX(-50%)}
+.pigura::after{bottom:-13px;left:50%;transform:translateX(-50%)}
+.pigura .kata{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--rose)}
+.pigura .angka{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(6.5rem,34vw,10rem);line-height:1;margin:2px 0 6px}
+.pigura .undang{font-size:.95rem;opacity:.8;margin-bottom:28px}
+.tombol{font:400 .95rem 'Jost',sans-serif;letter-spacing:.14em;color:#2a1405;background:var(--foil);background-size:200% 100%;border:0;border-radius:2px;
+  padding:15px 38px;cursor:pointer;box-shadow:0 10px 34px rgba(233,207,147,.28);transition:background-position .6s,transform .25s}
+.tombol:hover{background-position:100% 0;transform:translateY(-2px)}
+.tombol:disabled{opacity:.7;cursor:default;transform:none}
+button:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+/* ---------- UMUM ---------- */
+section{max-width:780px;margin:0 auto;padding:96px 24px;text-align:center}
+.hiasan{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--emas);margin:0 auto 22px;max-width:260px}
+.hiasan::before,.hiasan::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--emas2))}
+.hiasan::after{transform:scaleX(-1)}
+h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(2.1rem,7vw,3.2rem);line-height:1.15;margin-bottom:18px}
+.pengantar{max-width:520px;margin:0 auto 34px;opacity:.85}
+.muncul-awal{opacity:0;transform:translateY(18px);transition:opacity 1.3s ease,transform 1.3s ease}
+.muncul-awal.muncul{opacity:1;transform:none}
+
+/* ---------- HERO ---------- */
+#hero{padding-top:70px;padding-bottom:70px}
+.lengkung{position:relative;width:min(310px,78vw);aspect-ratio:3/4.1;margin:0 auto 38px;border-radius:200px 200px 10px 10px;padding:9px;
+  background:var(--foil);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 80px rgba(233,207,147,.18)}
+.lengkung img{width:100%;height:100%;object-fit:cover;border-radius:192px 192px 4px 4px;display:block;border:3px solid #1a0b1c}
+#hero .atas{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--rose)}
+#hero .nama{font-family:'Great Vibes',cursive;font-size:clamp(3.6rem,17vw,7rem);line-height:1.02;margin:4px 0 10px;padding:0 6px}
+#hero .tujuh{font-family:'Cormorant Garamond',serif;font-size:1.25rem;letter-spacing:.3em;color:var(--emas);margin-bottom:22px}
+#hero .sub{max-width:480px;margin:0 auto;opacity:.88}
+
+/* ---------- BLOK TEKS ---------- */
+.blok p{max-width:560px;margin:0 auto 26px;font-size:1.06rem}
+.blok p b{font-weight:400;color:var(--emas);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.22em}
+.daftar-doa{max-width:560px;margin:0 auto;text-align:left}
+.doa{position:relative;padding:20px 22px 20px 62px;margin-bottom:16px;border-left:1px solid var(--emas2);background:linear-gradient(90deg,rgba(233,207,147,.07),transparent)}
+.doa::before{content:"✦";position:absolute;left:22px;top:20px;color:var(--emas);font-size:1.1rem}
+.doa b{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:1.35rem;color:var(--rose);line-height:1.3;margin-bottom:2px}
+.aamiin{margin-top:34px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.7rem;color:var(--emas)}
+
+/* ---------- KUE ---------- */
+.kue{position:relative;width:250px;height:230px;margin:50px auto 26px}
+.tingkat{position:absolute;left:50%;transform:translateX(-50%);border-radius:10px 10px 12px 12px;box-shadow:inset 0 -10px 18px rgba(0,0,0,.18)}
+.t1{bottom:0;width:250px;height:78px;background:linear-gradient(#f3c9bf,#e8a598)}
+.t2{bottom:78px;width:184px;height:68px;background:linear-gradient(#fff6e6,#f1dcc0)}
+.t3{bottom:146px;width:120px;height:56px;background:linear-gradient(#f3c9bf,#e8a598)}
+.tingkat::before{content:"";position:absolute;left:0;right:0;top:0;height:15px;border-radius:10px 10px 50% 50%/10px 10px 100% 100%;background:var(--foil)}
+.t2::before{background:linear-gradient(#e8a598,#d98b7d)}
+.lilin{position:absolute;bottom:200px;width:7px;height:36px;border-radius:3px;background:linear-gradient(90deg,#c79a4c,#f6e3b0,#c79a4c)}
+.lilin:nth-of-type(4){left:calc(50% - 32px)}.lilin:nth-of-type(5){left:calc(50% - 3px)}.lilin:nth-of-type(6){left:calc(50% + 26px)}
+.api{position:absolute;top:-24px;left:50%;width:12px;height:21px;transform:translateX(-50%);
+  background:radial-gradient(circle at 50% 70%,#fff8d6,#ffc15c 60%,transparent 72%);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;
+  animation:goyang .55s ease-in-out infinite alternate;filter:drop-shadow(0 0 10px #ffc15c)}
+@keyframes goyang{to{transform:translateX(-50%) rotate(7deg) scale(.92)}}
+.padam .api{display:none}
+#pesanKue{min-height:3em;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.55rem;color:var(--emas);margin-bottom:18px}
+
+/* ---------- GALERI ---------- */
+.galeri{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 24px 30px;margin:0 -24px;-webkit-overflow-scrolling:touch}
+.galeri::-webkit-scrollbar{height:0}
+.galeri figure{flex:0 0 min(270px,74vw);scroll-snap-align:center;padding:9px;background:var(--foil);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+.galeri .dalam{background:#1a0b1c;padding:8px 8px 12px}
+.galeri img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.galeri figcaption{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;margin-top:9px;color:var(--gading);line-height:1.3}
+.petunjuk{font-size:.85rem;letter-spacing:.1em;opacity:.55}
+
+/* ---------- SURAT ---------- */
+.surat{position:relative;padding:48px 28px 40px;text-align:left;border:1px solid var(--emas2);outline:1px solid rgba(233,207,147,.3);outline-offset:8px;
+  background:linear-gradient(160deg,rgba(251,243,228,.09),rgba(251,243,228,.02))}
+.surat p{margin-bottom:18px;font-size:1.05rem}
+.surat .salam{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--rose)}
+.ttd{font-family:'Great Vibes',cursive;font-size:2.6rem;text-align:right;line-height:1.1;margin-top:10px}
+footer{padding:20px 24px 120px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--emas);opacity:.8}
+
+/* ---------- MUSIK ---------- */
+#musik{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;display:none;align-items:center;gap:10px;
+  border:1px solid var(--emas2);border-radius:999px;background:rgba(13,8,21,.82);backdrop-filter:blur(8px);color:var(--emas);padding:8px 16px 8px 8px;
+  font:300 .8rem 'Jost',sans-serif;cursor:pointer}
+#musik .cakram{width:34px;height:34px;border-radius:50%;background:var(--foil);display:grid;place-items:center;color:#2a1405;font-size:.95rem}
+#musik.putar .cakram{animation:putar 5s linear infinite}
+@keyframes putar{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.muncul-awal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="terkunci">
+<canvas id="debu"></canvas>
+<canvas id="konfeti"></canvas>
+
+<!-- COVER -->
+<div id="cover">
+  <div class="pigura">
+    <div class="kata">Sebuah persembahan untuk</div>
+    <div class="angka emas">17</div>
+    <p class="undang" id="coverNama"></p>
+    <button class="tombol" id="bukaBtn">BUKA HADIAHMU</button>
+  </div>
+</div>
+
+<audio id="lagu" src="lagu.mp3" loop preload="auto"></audio>
+<button id="musik" aria-label="Putar atau jeda musik"><span class="cakram">♪</span><span>Shape of My Heart</span></button>
+
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="lengkung muncul-awal"><img id="fotoUtama" alt="Foto Chelsi"></div>
+    <div class="atas muncul-awal">Selamat Ulang Tahun</div>
+    <h1 class="nama emas muncul-awal" id="nama"></h1>
+    <div class="tujuh muncul-awal">SWEET SEVENTEEN</div>
+    <p class="sub muncul-awal" id="subJudul"></p>
+  </section>
+
+  <!-- SELAMAT -->
+  <section class="blok" id="selamat">
+    <div class="hiasan">❖</div>
+    <h2 class="emas">Selamat, Putri Tercantik</h2>
+    <div id="daftarSelamat"></div>
+  </section>
+
+  <!-- SYUKUR -->
+  <section class="blok" id="syukur">
+    <div class="hiasan">❖</div>
+    <h2 class="emas">Rasa Syukur Hari Ini</h2>
+    <div id="daftarSyukur"></div>
+  </section>
+
+  <!-- DOA -->
+  <section id="doa">
+    <div class="hiasan">❖</div>
+    <h2 class="emas">Doa Terbaikku Untukmu</h2>
+    <p class="pengantar">Di usia yang baru, inilah harapan yang kutitipkan pada langit.</p>
+    <div class="daftar-doa" id="daftarDoa"></div>
+    <div class="aamiin muncul-awal">Aamiin, aamiin, aamiin. 🤍</div>
+  </section>
+
+  <!-- KUE -->
+  <section id="kue">
+    <div class="hiasan">❖</div>
+    <h2 class="emas">Buat Satu Permohonan</h2>
+    <p class="pengantar">Pejamkan mata sejenak, bisikkan keinginanmu, lalu tiup lilinnya.</p>
+    <div class="kue" id="kueBox">
+      <div class="tingkat t3"></div><div class="tingkat t2"></div><div class="tingkat t1"></div>
+      <div class="lilin"><div class="api"></div></div>
+      <div class="lilin"><div class="api"></div></div>
+      <div class="lilin"><div class="api"></div></div>
+    </div>
+    <div id="pesanKue"></div>
+    <button class="tombol" id="tiupBtn">TIUP LILIN</button>
+  </section>
+
+  <!-- GALERI -->
+  <section id="galeri">
+    <div class="hiasan">❖</div>
+    <h2 class="emas">Potret yang Kusimpan</h2>
+    <div class="galeri" id="galeriBox"></div>
+    <p class="petunjuk">geser untuk melihat semuanya</p>
+  </section>
+
+  <!-- SURAT -->
+  <section id="surat">
+    <div class="surat muncul-awal" id="suratBox"></div>
+  </section>
+</main>
+<footer id="penutup"></footer>
+
+<script>
+/* =====================================================
+   ✏️ EDIT BAGIAN INI UNTUK MENGUBAH ISI WEBSITE
+   ===================================================== */
+const CONFIG = {
+  namaLengkap: "Chelsi Putri Rahmadani",
+  panggilan: "Chelsi",
+  dariNama: "Pacarmu",          // ← ganti dengan namamu
+
+  subJudul: "Tujuh belas tahun lalu, dunia kedatangan seseorang yang kelak membuat banyak hati merasa hangat. Hari ini, semesta sedang merayakanmu.",
+
+  selamat: [
+    "Selamat ulang tahun yang ke-<b>17</b>, Chelsi Putri Rahmadani. Hari ini bukan hari biasa, hari ini adalah hari di mana seorang gadis istimewa lahir ke dunia.",
+    "Selamat atas setiap langkah yang sudah kamu lewati, atas semua tawa dan air mata yang membuatmu tumbuh sekuat dan sebaik ini.",
+    "Selamat memasuki usia tujuh belas: usia di mana mimpi mulai terasa dekat, dan kamu mulai mengerti betapa berharganya dirimu sendiri.",
+    "Selamat, <b>sayang</b>. Semoga hari ini penuh senyum, pelukan hangat, dan kejutan-kejutan manis dari orang-orang yang menyayangimu."
+  ],
+
+  syukur: [
+    "Aku bersyukur kepada Tuhan, atas hadirnya kamu di dunia ini, dan atas kesempatan untuk mengenalmu.",
+    "Aku bersyukur untuk <b>senyummu</b> yang selalu menenangkan, untuk sabarmu, untuk caramu peduli tanpa pernah meminta balasan.",
+    "Aku bersyukur untuk keluargamu yang sudah membesarkanmu dengan penuh cinta, hingga lahir pribadi sebaik dirimu.",
+    "Aku bersyukur untuk setiap hari yang kita lewati bersama, hari-hari sederhana yang diam-diam menjadi kenangan terindahku."
+  ],
+
+  doa: [
+    { judul: "Kesehatan dan umur yang berkah", isi: "Semoga Tuhan menjagamu dalam sehat jasmani dan rohani, dan memberimu umur panjang yang penuh keberkahan." },
+    { judul: "Hati yang selalu tenang", isi: "Semoga setiap kali resah datang, ada ketenangan yang lebih besar yang menjemputmu pulang." },
+    { judul: "Ilmu, prestasi, dan masa depan cerah", isi: "Semoga langkahmu dimudahkan dalam belajar, setiap usahamu berbuah hasil terbaik, dan cita-citamu terwujud satu per satu." },
+    { judul: "Rezeki dan kemudahan", isi: "Semoga rezekimu lapang, jalanmu dimudahkan, dan setiap kesulitan selalu bertemu jalan keluarnya." },
+    { judul: "Dikelilingi orang yang tulus", isi: "Semoga kamu selalu dikelilingi keluarga dan sahabat yang menyayangimu apa adanya." },
+    { judul: "Cinta yang tumbuh dengan baik", isi: "Semoga kita terus saling menjaga, saling mendoakan, dan tumbuh menjadi versi terbaik dari diri masing-masing." }
+  ],
+
+  foto: [
+    { src: "foto/foto3.jpg", teks: "Senyum yang menenangkan" },
+    { src: "foto/foto1.jpg", teks: "Kamu, yang paling menggemaskan" },
+    { src: "foto/foto2.jpg", teks: "Langit cerah, tapi kamu lebih bersinar" },
+    { src: "foto/foto4.jpg", teks: "Sosok tangguh dan penuh semangat" },
+    { src: "foto/foto5.jpg", teks: "Kenangan manis di masa sekolah" }
+  ],
+
+  surat: [
+    "Untuk Chelsi yang kusayangi,",
+    "Aku tidak sepandai penyair, tapi aku ingin kamu tahu: aku sangat bersyukur kamu ada. Terima kasih sudah menjadi tempatku bercerita, tertawa, dan belajar menjadi lebih baik.",
+    "Di usia tujuh belas ini, aku ingin kamu terus menjadi dirimu yang apa adanya: tulus, ceria, dan penuh semangat. Jangan pernah ragu, karena kamu jauh lebih berharga dari yang kamu kira.",
+    "Apa pun yang kamu kejar nanti, aku akan ada di sampingmu, mendukung, mendoakan, dan bangga padamu.",
+    "Selamat ulang tahun, cintaku. Semoga tahun ini adalah tahun terindahmu. 🤍"
+  ],
+
+  pesanSetelahTiup: "Semoga seluruh permohonanmu dikabulkan ✨",
+  penutup: "Dengan segenap cinta, untuk Chelsi Putri Rahmadani."
+};
+/* ===================================================== */
+
+const $ = s => document.querySelector(s);
+const kecil = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+$('#nama').textContent = CONFIG.namaLengkap;
+$('#coverNama').textContent = CONFIG.namaLengkap;
+$('#subJudul').textContent = CONFIG.subJudul;
+$('#fotoUtama').src = CONFIG.foto[0].src;
+$('#penutup').textContent = CONFIG.penutup;
+$('#daftarSelamat').innerHTML = CONFIG.selamat.map(t => `<p class="muncul-awal">${t}</p>`).join('');
+$('#daftarSyukur').innerHTML = CONFIG.syukur.map(t => `<p class="muncul-awal">${t}</p>`).join('');
+$('#daftarDoa').innerHTML = CONFIG.doa.map(d => `<div class="doa muncul-awal"><b>${d.judul}</b>${d.isi}</div>`).join('');
+$('#galeriBox').innerHTML = CONFIG.foto.map(f =>
+  `<figure><div class="dalam"><img src="${f.src}" alt="${f.teks}" loading="lazy"><figcaption>${f.teks}</figcaption></div></figure>`).join('');
+$('#suratBox').innerHTML = CONFIG.surat.map((t,i) => `<p class="${i===0?'salam':''}">${t}</p>`).join('') +
+  `<div class="ttd emas">${CONFIG.dariNama}</div>`;
+
+// elemen muncul perlahan saat di-scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('muncul'); io.unobserve(e.target);} }), {threshold:.25});
+document.querySelectorAll('.muncul-awal').forEach(el => io.observe(el));
+
+// musik
+const lagu = $('#lagu'), musikBtn = $('#musik');
+function setMusik(on){ if(on){ lagu.play().catch(()=>{}); musikBtn.classList.add('putar'); } else { lagu.pause(); musikBtn.classList.remove('putar'); } }
+musikBtn.onclick = () => setMusik(lagu.paused);
+
+// debu emas melayang
+const dc = $('#debu'), dx = dc.getContext('2d'); let debu = [];
+function ukur(){ for(const c of [dc,$('#konfeti')]){ c.width = innerWidth; c.height = innerHeight; } } ukur(); addEventListener('resize', ukur);
+for(let i=0;i<55;i++) debu.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.4,v:Math.random()*.35+.08,a:Math.random()*6});
+function loopDebu(){
+  dx.clearRect(0,0,dc.width,dc.height);
+  debu.forEach(p => { p.y -= p.v; p.a += .02; if(p.y < -5){ p.y = dc.height+5; p.x = Math.random()*dc.width; }
+    dx.beginPath(); dx.arc(p.x + Math.sin(p.a)*8, p.y, p.r, 0, 6.3); dx.fillStyle = `rgba(233,207,147,${.25+.35*Math.abs(Math.sin(p.a))})`; dx.fill(); });
+  requestAnimationFrame(loopDebu);
+}
+if(!kecil) loopDebu();
+
+// konfeti emas
+const cv = $('#konfeti'), cx = cv.getContext('2d'); let keping = [];
+function ledakan(n=160){
+  const warna = ['#e9cf93','#f6e3b0','#b98a3e','#e8a598','#fbf3e4'];
+  for(let i=0;i<n;i++) keping.push({x:innerWidth/2,y:innerHeight*.5,vx:(Math.random()-.5)*15,vy:-Math.random()*14-3,
+    r:Math.random()*5+3,c:warna[i%warna.length],rot:Math.random()*6,vr:(Math.random()-.5)*.4,hidup:150+Math.random()*60});
+  if(keping.length === n) anim();
+}
+function anim(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  keping = keping.filter(k => k.hidup > 0);
+  keping.forEach(k => { k.x+=k.vx; k.y+=k.vy; k.vy+=.3; k.vx*=.99; k.rot+=k.vr; k.hidup--;
+    cx.save(); cx.translate(k.x,k.y); cx.rotate(k.rot); cx.fillStyle=k.c; cx.globalAlpha=Math.min(1,k.hidup/40);
+    cx.fillRect(-k.r,-k.r/2,k.r*2,k.r); cx.restore(); });
+  if(keping.length) requestAnimationFrame(anim);
+}
+
+// buka cover
+$('#bukaBtn').onclick = () => {
+  $('#cover').classList.add('hilang'); document.body.classList.remove('terkunci');
+  musikBtn.style.display = 'flex'; setMusik(true); ledakan();
+};
+
+// tiup lilin
+$('#tiupBtn').onclick = e => {
+  $('#kueBox').classList.add('padam'); $('#pesanKue').textContent = CONFIG.pesanSetelahTiup;
+  e.target.disabled = true; e.target.textContent = 'PERMOHONAN TERKIRIM'; ledakan(220);
+};
+</script>
+</body>
+</html>
